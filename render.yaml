@@ -1,4 +1,3 @@
-services:
-  databases:
-    - name: admin
-      ipAllowList: []
+databases:
+  - name: admin
+    ipAllowList: []
