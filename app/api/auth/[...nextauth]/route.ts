@@ -25,7 +25,11 @@ export const authOptions: NextAuthOptions = {
           },
         });
 
-        if (!user || !(await compare(password, user.password)) || user.role === RoleEnum.USER) {
+        if (user?.role === RoleEnum.USER) {
+          throw new Error("Only admins can login");
+        }
+
+        if (!user || !(await compare(password, user.password))) {
           throw new Error("Invalid username or password");
         }
 
