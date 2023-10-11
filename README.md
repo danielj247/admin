@@ -1,5 +1,8 @@
 # admin.
 A NodeJS admin application build with Next.js
+
+> [Try the demo](https://admin.danieljarrett.dev/) - `admin@example.com` `secret123`
+
 ## Development
 
 > Make sure to update the .env or .env.local with necessary values.
