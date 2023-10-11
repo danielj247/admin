@@ -9,6 +9,16 @@ async function main() {
   const name = process.env.ADMIN_NAME;
   const email = process.env.ADMIN_EMAIL;
   const pw = process.env.ADMIN_PASSWORD;
+  const exists = await prisma.user.findUnique({
+    where: {
+      email,
+    },
+  });
+
+  if (exists) {
+    console.log("Admin user already exists");
+    return;
+  }
 
   if (name && email && pw) {
     const password = await hash(pw, 10);
