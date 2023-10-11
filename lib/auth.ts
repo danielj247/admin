@@ -15,8 +15,7 @@ export const authOptions: NextAuthOptions = {
         password: { label: "Password", type: "password" },
       },
 
-      // eslint-disable-next-line @typescript-eslint/ban-ts-comment
-      // @ts-ignore
+      // @ts-expect-error -> want to return a User or Error instead of NextAuth's expectation
       async authorize(credentials): Promise<User | Error> {
         const { email, password } = credentials ?? {};
 
