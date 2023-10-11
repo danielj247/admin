@@ -17,6 +17,11 @@ import {
 } from "@/components/ui/alert-dialog";
 
 export function SignOutButton() {
+  async function handleSignOut() {
+    await signOut({ redirect: false });
+    window.location.replace(window.location.origin + "/");
+  }
+
   return (
     <AlertDialog>
       <AlertDialogTrigger asChild>
@@ -33,7 +38,7 @@ export function SignOutButton() {
         </AlertDialogHeader>
         <AlertDialogFooter>
           <AlertDialogCancel>Cancel</AlertDialogCancel>
-          <AlertDialogAction onClick={() => signOut({ callbackUrl: "/" })}>Continue</AlertDialogAction>
+          <AlertDialogAction onClick={handleSignOut}>Continue</AlertDialogAction>
         </AlertDialogFooter>
       </AlertDialogContent>
     </AlertDialog>

@@ -3,9 +3,9 @@ import type { NextAuthOptions } from "next-auth";
 import { getServerSession } from "next-auth";
 import { redirect } from "next/navigation";
 import CredentialsProvider from "next-auth/providers/credentials";
-import prisma from "@/lib/prisma";
 import { compare } from "bcrypt";
 import { RoleEnum, User } from "@prisma/client";
+import prisma from "@/lib/prisma";
 
 export const authOptions: NextAuthOptions = {
   providers: [
@@ -43,7 +43,6 @@ export const authOptions: NextAuthOptions = {
   ],
 };
 
-// Use it in server contexts
 export function auth(
   ...args: [GetServerSidePropsContext["req"], GetServerSidePropsContext["res"]] | [NextApiRequest, NextApiResponse] | []
 ) {
